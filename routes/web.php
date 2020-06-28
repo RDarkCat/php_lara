@@ -2,25 +2,28 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::get('/', 'WelcomeController@index');
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/about', 'AboutController@index');
+
+Route::get('/signin', function (){
+    return view('auth');
 });
 
-Route::get('/articles', function() {
-	return view('article');
+Route::group(['prefix' => 'news'], function () {
+    Route::get('/', 'NewsController@index')->name('news.index');
+    Route::get('/add', 'NewsController@add')->name('news.add');
+    Route::get('/item/{id}', 'NewsController@item')->name('news.item')
+        ->where('id', '\d+');;
+    Route::get('/edit/{id}', 'NewsController@edit')->name('news.edit')
+        ->where('id', '\d+');;
 });
 
-Route::get('/about', function() {
-	return view('about');
+Route::group(['prefix' => 'categories'], function () {
+    Route::get('/', 'CategoriesController@index')->name('categories.index');
+    Route::get('/view/{id}', 'CategoriesController@view')->name('categories.view')
+        ->where('id', '\d+');
+    Route::get('/edit/{id}', 'CategoriesController@edit')->name('categories.edit')
+        ->where('id', '\d+');
 });
+
