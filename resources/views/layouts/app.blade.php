@@ -8,13 +8,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Blog Post - Start Bootstrap Template</title>
+    <title>Блог "Новости§ леса"</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css">
 
     <!-- Custom styles for this template -->
-    <link href="{{asset('css/blog-post.css')}}" rel="stylesheet">
+    <link href="{{asset('css/blog-post.css')}}" rel="stylesheet" type="text/css">
 
 </head>
 

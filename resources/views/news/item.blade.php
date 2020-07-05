@@ -22,7 +22,7 @@
 
         <hr>
 
-        <!-- Comments Form -->
+
         <div class="card my-4">
             <h5 class="card-header">Leave a Comment:</h5>
             <div class="card-body">
@@ -35,7 +35,6 @@
             </div>
         </div>
 
-        <!-- Single Comment -->
         <div class="media mb-4">
             <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
             <div class="media-body">
@@ -44,7 +43,6 @@
             </div>
         </div>
 
-        <!-- Comment with nested comments -->
         <div class="media mb-4">
             <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
             <div class="media-body">
