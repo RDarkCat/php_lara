@@ -2,22 +2,22 @@
 @section('content')
     <div class="col-lg-8">
         <p><a href="/">К новостям</a></p>
-        <h1 class="mt-4">{{ $news[$id]['title'] }}</h1>
+        <h1 class="mt-4">{{ $news->title }}</h1>
         <p class="lead">
             by
-            <a href="#">{{ $news[$id]['author'] }}</a>&nbsp;
-            <a href="{{route('news.edit', ['id' => $news[$id]['id']])}}">Редактировать новость</a>
+            <a href="#">{{ $news->author }}</a>&nbsp;
+            <a href="{{route('news.edit', ['id' => $news->id])}}">Редактировать новость</a>
         </p>
 
         <hr>
-        <p>{{ $news[$id]['posted'] }}</p>
+        <p>{{ $news->created_at }}</p>
 
         <hr>
         <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
         <hr>
         <!-- Post Content -->
         <p class="lead">
-            {{ $news[$id]['body'] }}
+            {{ $news->body }}
         </p>
 
         <hr>

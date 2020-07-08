@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\NewsCreateRequest;
+use App\News;
+use Illuminate\Support\Facades\DB;
 
 class NewsController extends Controller
 {
 
     public function index()
     {
-        return view('news.index', ['news' => $this->news]);
+        $news = (new News())->getAllNews();
+        return view('news.index', ['news' => $news]);
     }
 
     public function add()
@@ -19,12 +22,24 @@ class NewsController extends Controller
 
     public function item($id)
     {
-        return view('news.item', ['id' => $id, 'news'=> $this->news]);
+        $news = (new News())->getOneNews($id);
+
+        if (!$news) {
+            return abort(404);
+        }
+
+        return view('news.item', ['id' => $id, 'news'=> $news]);
     }
 
     public function edit($id)
     {
-        return view('news.edit', ['id' => $id, 'news'=> $this->news]);
+        $news = (new News())->getOneNews($id);
+
+        if (!$news) {
+            return abort(404);
+        }
+
+        return view('news.edit', ['id' => $id, 'news'=> $news]);
     }
 
     public function save(NewsCreateRequest $request)
