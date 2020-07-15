@@ -3,52 +3,37 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\NewsCreateRequest;
-use App\News;
-use Illuminate\Support\Facades\DB;
+use App\Models\News;
+use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
-
-    public function index()
-    {
-        $news = (new News())->getAllNews();
-        return view('news.index', ['news' => $news]);
-    }
 
     public function add()
     {
         return view('news.add');
     }
 
-    public function item($id)
+    public function item(News $news)
     {
-        $news = (new News())->getOneNews($id);
-
-        if (!$news) {
-            return abort(404);
-        }
-
-        return view('news.item', ['id' => $id, 'news'=> $news]);
+        return view('news.item', ['news' => $news]);
     }
 
-    public function edit($id)
+    public function edit(News $news)
     {
-        $news = (new News())->getOneNews($id);
-
-        if (!$news) {
-            return abort(404);
-        }
-
-        return view('news.edit', ['id' => $id, 'news'=> $news]);
+        return view('news.edit', ['news' => $news]);
     }
 
     public function save(NewsCreateRequest $request)
     {
-        $title = $request->input('title');
-        $name = $request->input('name');
-        $description = $request->input('description');
-        $data_string = $title . ' ' . $name . ' ' . $description;
-        file_put_contents(storage_path('app/public/db.txt'), $data_string, FILE_APPEND);
+        $news = new News();
+        $news->fill($request->all());
+        $news->save();
         return redirect()->route('news.index');
     }
+    public function delete(Request $request)
+    {
+        return true;
+    }
+    
 }

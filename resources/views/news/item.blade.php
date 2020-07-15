@@ -6,7 +6,7 @@
         <p class="lead">
             by
             <a href="#">{{ $news->author }}</a>&nbsp;
-            <a href="{{route('news.edit', ['id' => $news->id])}}">Редактировать новость</a>
+            <a href="{{route('news.edit', ['news' => $news->id])}}">Редактировать новость</a>
         </p>
 
         <hr>
