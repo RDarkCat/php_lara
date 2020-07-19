@@ -16,10 +16,10 @@
                     <a class="nav-link" href="{{ route('about') }}">О проекте</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/news/add">Добавить новость</a>
+                    <a class="nav-link" href="{{ route('news.create') }}">Добавить новость</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/contact">Контакты</a>
+                    <a class="nav-link" href="{{ route('contact') }}">Контакты</a>
                 </li>
             </ul>
         </div>

@@ -4,15 +4,27 @@
         <div class="card my-4">
             <div class="card-header">Добавить новость</div>
             <div class="card-body">
-                <form action="{{ route('news.save') }}" method="post">
+                <form action="{{ route('news.store') }}" method="post">
                     <div class="form-group">
                         @csrf
-                        <label for="name-id">Название:</label>
-                        <input id="name-id" name="name" type="text" class="form-control" value="{{ old('name') }}"/>
                         <label for="title-id">Заголовок (краткое описание):</label>
                         <input id="title-id" name="title" type="text" class="form-control" value="{{ old('title') }}"/>
+                        @if($errors->has('title'))
+                            <div class="alert alert-danger">
+                                @foreach($errors->get('title') as $error)
+                                    <p style="margin-bottom: 0;">{{ $error }}</p>
+                                @endforeach
+                            </div>
+                        @endif
                         <label for="description-id">Текст новости (длинное описание):</label>
-                        <input id="description-id" name="description" type="text" class="form-control" value="{{ old('description') }}"/>
+                        <input id="description-id" name="body" type="text" class="form-control" value="{{ old('body') }}"/>
+                        @if($errors->has('body'))
+                            <div class="alert alert-danger">
+                                @foreach($errors->get('body') as $error)
+                                    <p style="margin-bottom: 0;">{{ $error }}</p>
+                                @endforeach
+                            </div>
+                        @endif
                     </div>
                     <button type="submit" class="btn btn-primary">Отправить</button>
                 </form>

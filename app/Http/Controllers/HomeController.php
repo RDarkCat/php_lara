@@ -26,7 +26,7 @@ class HomeController extends Controller
     //{
     //    return view('home');
     //}
-    
+
     public function index()
     {
         return view('news.index', ['news' => News::all(), 'categories' => Category::all()]);
