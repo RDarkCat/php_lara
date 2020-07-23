@@ -3,15 +3,14 @@
     <div class="col-lg-8">
         <h1>Страница редактирования новости</h1>
 
-        <form action="" class="form-group">
+        <form method="post" action="{{ route('news.update', ['news' => $news->id]) }}" class="form-group">
+            @method('PUT')
             @csrf
             <div class="d-flex flex-column">
-
-                <label for="name-id">Название:<input id="name-id" type="text" value="" class="form-control"></label>
                 <label for="title-id">Заголовок (краткое описание):<input id="title-id" type="text"
-                                                                          value="{{$news->title}}" class="form-control"></label>
+                                                                          value="{{$news->title}}" name="title" class="form-control"></label>
                 <label for="description-id">Текст новости (длинное описание):<input id="description-id" type="text"
-                                                                                    value="{{$news->body}}" class="form-control"></label>
+                                                                                    value="{{$news->body}}" name="body" class="form-control"></label>
                 <input type="submit" value="Отправить" class="btn btn-primary"/>
             </div>
         </form>

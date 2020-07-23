@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 class ContactController extends Controller
 {
-    public function index() {
-        return view('contact');
+    public function __invoke() {
+        return view('contact', ['categories' => $this->getCategories()]);
     }
 }

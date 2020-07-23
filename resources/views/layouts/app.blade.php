@@ -44,7 +44,7 @@
 
             <!-- Category Widget -->
 
-           <x-category :categories="$categories" />
+            <x-categories :categories="$categories ?? []"></x-categories>
 
             <!-- Side Widget -->
             <div class="card my-4">

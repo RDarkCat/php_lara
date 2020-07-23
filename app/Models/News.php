@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class News extends Model
 {
     protected $table = 'news';
-    
+
     protected $fillable = ['title', 'name', 'body'];
+
+    public $timestamps = false;
 }

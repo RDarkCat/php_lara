@@ -16,11 +16,23 @@
                     <a class="nav-link" href="{{ route('about') }}">О проекте</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/news/add">Добавить новость</a>
+                    <a class="nav-link" href="{{ route('contact') }}">Контакты</a>
+                </li>
+                @if(!Auth::check())
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('register') }}">Регистрация</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/contact">Контакты</a>
+                    <a class="nav-link" href="{{ route('login') }}">Вход</a>
                 </li>
+                @else
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('account') }}">Личный кабинет</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('logout') }}">Выход</a>
+                </li>
+                @endif
             </ul>
         </div>
     </div>
