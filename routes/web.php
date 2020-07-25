@@ -34,5 +34,13 @@ Route::group(['middleware' => 'auth'], function () {
     });
 });
 Route::get('/order', 'OrderController@index')->name('order.index');
+Route::get('/extra/news', ParserController::class)->name('extra.index');
+
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('/vk/auth/redirect', 'SocialAuthcontroller@vkAuth')->name('vk.auth');
+    Route::get('/vk/auth/callback', 'SocialAuthcontroller@vkAuthCallback')->name('vk.callback');
+    Route::get('/facebook/auth/redirect', 'SocialAuthcontroller@facebookAuth')->name('facebook.auth');
+    Route::get('/facebook/auth/callback', 'SocialAuthcontroller@facebookAuthCallback')->name('facebook.callback');
+});
 
 Auth::routes();

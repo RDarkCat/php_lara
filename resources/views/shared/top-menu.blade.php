@@ -15,9 +15,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('about') }}">О проекте</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('contact') }}">Контакты</a>
-                </li>
                 @if(!Auth::check())
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('register') }}">Регистрация</a>
@@ -25,7 +22,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('login') }}">Вход</a>
                 </li>
-                @else
+                    @else
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('account') }}">Личный кабинет</a>
                 </li>

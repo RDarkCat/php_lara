@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -12,11 +11,11 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return view('users.all', ['users' => User::all()]);
+        //
     }
 
     /**
@@ -48,39 +47,30 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::where('id', $id)->first();
-        if (!$user) {
-            return abort(404);
-        }
-        return view('users.show', ['user' => $user, 'users' => User::all()]);
+        return view('user.show', ['users' => User::all]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
-        return view('users.edit', ['user' => $user, 'users' => User::all()]);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param User $user
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
-        $user->is_admin = $request->has('is_admin');
-        if ($user->save()) {
-            return redirect('/admin/users');
-        }
-
-        return back();
+        //
     }
 
     /**

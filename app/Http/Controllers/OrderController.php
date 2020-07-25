@@ -6,6 +6,6 @@ class OrderController extends Controller
 {
     public function index()
     {
-        return view('order', ['categories' => $this->getCategories()]);
+        return view('order');
     }
 }

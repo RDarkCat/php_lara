@@ -53,6 +53,22 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
+                                <div>
+                                    <a href="{{ route('vk.auth') }}" class="btn btn-primary">Войти через Вконтакте</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                <div>
+                                    <a href="{{ route('facebook.auth') }}" class="btn btn-primary">Войти через Facebook</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
@@ -70,4 +86,28 @@
         </div>
     </div>
 </div>
+
+@push('someJavascript')
+    <script type="application/javascript">
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId      : 'xxxxxxxxxxxxxxxx',
+                cookie     : true,
+                xfbml      : true,
+                version    : '7.0'
+            });
+
+            FB.AppEvents.logPageView();
+
+        };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+@endpush
 @endsection

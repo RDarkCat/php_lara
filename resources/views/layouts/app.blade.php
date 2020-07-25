@@ -64,6 +64,9 @@
 
 @include('shared.footer')
 <script type="application/javascript" src="{{ asset('js/app.js') }}"></script>
+
+@stack('someJavascript')
+
 </body>
 
 </html>

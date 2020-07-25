@@ -16,13 +16,12 @@ class Admin
     public function handle($request, Closure $next)
     {
         $user = \Auth::user();
-        if($user->is_admin !== true) {
-            return redirect()->route('account')
-                ->with('error', 'Forbidden');
+
+        if ($user->is_admin === true) {
+            return $next($request);
         }
 
-
-        return $next($request);
+        return redirect()->route('/account')->with('error', 'Forbidden.');
 
     }
 }

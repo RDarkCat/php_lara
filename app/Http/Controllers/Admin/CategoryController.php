@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryCreateRequest;
 use App\Models\Category;
+use \Exception;
 
 class CategoryController extends Controller
 {
@@ -87,10 +88,19 @@ class CategoryController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Category $category)
     {
-        //
+        $category->news()->detach();
+
+        try {
+            $category->delete();
+        } catch (Exception  $e){
+            return redirect()->route('')->with("error_string", __('Не удалось удалить категорию' . $e));
+        }
+
+        return redirect()->route('')->with("success_string", __('Категория удалена'));
+
     }
 }

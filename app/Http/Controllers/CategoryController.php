@@ -13,7 +13,8 @@ class CategoryController extends Controller
         if (!$category) {
             return abort(404);
         }
-        return view('categories.show', ['category' => $category, 'categories' => $this->getCategories()]);
+
+        return view('categories.show', ['category' => $category]);
     }
 
 }

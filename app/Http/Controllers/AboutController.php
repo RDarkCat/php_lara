@@ -6,9 +6,8 @@ use Illuminate\Http\Request;
 
 class AboutController extends Controller
 {
-
     public function index()
     {
-        return view('about', ['categories' => $this->getCategories()]);
+        return view('about');
     }
 }

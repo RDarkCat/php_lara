@@ -17,7 +17,7 @@ class NewsController extends Controller
 
     public function item(News $news)
     {
-        return view('news.item', ['news' => $news, 'categories' => $this->getCategories()]);
+        return view('news.item', ['news' => $news]);
     }
 
 }
