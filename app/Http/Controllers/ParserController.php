@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 
 class ParserController extends Controller
 {
-    public function __invoke()
+    public function __invoke($link)
     {
-        return view('extra.index', ['extended_news' => (new XmlParserService())->parse()]);
+        return view('externals.index', ['extended_news' => (new XmlParserService())->parse($link)]);
     }
 }

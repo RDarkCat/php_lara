@@ -65,8 +65,8 @@
 @include('shared.footer')
 <script type="application/javascript" src="{{ asset('js/app.js') }}"></script>
 
-@stack('someJavascript')
-
+@stack('facebookAuth')
+@stack('ckEditor')
 </body>
 
 </html>

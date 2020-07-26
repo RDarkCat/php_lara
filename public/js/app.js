@@ -3609,7 +3609,7 @@ module.exports = {
         }
 
         this._popper = new Popper(referenceElement, this._menu, this._getPopperConfig());
-      } // If this is a touch-enabled device we add extra
+      } // If this is a touch-enabled device we add externals
       // empty mouseover listeners to the body's immediate children;
       // only needed because of broken event delegation on iOS
       // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
@@ -3825,7 +3825,7 @@ module.exports = {
 
         if (hideEvent.isDefaultPrevented()) {
           continue;
-        } // If this is a touch-enabled device we remove the extra
+        } // If this is a touch-enabled device we remove the externals
         // empty mouseover listeners we added for iOS support
 
 
@@ -4908,7 +4908,7 @@ module.exports = {
 
         $(this.element).trigger(this.constructor.Event.INSERTED);
         this._popper = new Popper(this.element, tip, this._getPopperConfig(attachment));
-        $(tip).addClass(CLASS_NAME_SHOW$4); // If this is a touch-enabled device we add extra
+        $(tip).addClass(CLASS_NAME_SHOW$4); // If this is a touch-enabled device we add externals
         // empty mouseover listeners to the body's immediate children;
         // only needed because of broken event delegation on iOS
         // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
@@ -4972,7 +4972,7 @@ module.exports = {
         return;
       }
 
-      $(tip).removeClass(CLASS_NAME_SHOW$4); // If this is a touch-enabled device we remove the extra
+      $(tip).removeClass(CLASS_NAME_SHOW$4); // If this is a touch-enabled device we remove the externals
       // empty mouseover listeners we added for iOS support
 
       if ('ontouchstart' in document.documentElement) {
@@ -10013,7 +10013,7 @@ function adoptValue( value, resolve, reject, noValue ) {
 		}
 
 	// For Promises/A+, convert exceptions into rejections
-	// Since jQuery.when doesn't unwrap thenables, we can skip the extra checks appearing in
+	// Since jQuery.when doesn't unwrap thenables, we can skip the externals checks appearing in
 	// Deferred#then to conditionally suppress rejection.
 	} catch ( value ) {
 
@@ -14234,7 +14234,7 @@ jQuery.fx.tick = function() {
 	for ( ; i < timers.length; i++ ) {
 		timer = timers[ i ];
 
-		// Run the timer and safely remove it when done (allowing for external removal)
+		// Run the timer and safely remove it when done (allowing for externals removal)
 		if ( !timer() && timers[ i ] === timer ) {
 			timers.splice( i--, 1 );
 		}
@@ -37341,8 +37341,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\projects\blog\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\projects\blog\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/vagrant/code/laravel/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/vagrant/code/laravel/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

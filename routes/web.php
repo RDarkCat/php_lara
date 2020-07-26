@@ -31,10 +31,14 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('/categories', Admin\CategoryController::class);
         Route::resource('/news', Admin\NewsController::class);
         Route::resource('/users', Admin\UserController::class);
+        Route::get('/externals/check', 'Admin\ExternalController@check')->name('externals.check');
+        Route::get('/externals/data', 'Admin\ExternalController@getData')->name('externals.data');
+        Route::resource('/externals', Admin\ExternalController::class);
+
     });
 });
 Route::get('/order', 'OrderController@index')->name('order.index');
-Route::get('/extra/news', ParserController::class)->name('extra.index');
+Route::get('/foreign/news', ParserController::class)->name('externals.index');
 
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/vk/auth/redirect', 'SocialAuthcontroller@vkAuth')->name('vk.auth');

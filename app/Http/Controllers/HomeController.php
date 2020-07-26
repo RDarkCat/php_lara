@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Externals;
+use App\Models\ForeignNews;
 use App\Models\News;
 use App\Models\Category;
 
@@ -25,6 +27,6 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('news.index', ['news' => News::all()]);
+        return view('news.index', ['news' => ForeignNews::all()]);
     }
 }

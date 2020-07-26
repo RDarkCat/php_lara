@@ -87,7 +87,7 @@
     </div>
 </div>
 
-@push('someJavascript')
+@push('facebookAuth')
     <script type="application/javascript">
         window.fbAsyncInit = function() {
             FB.init({

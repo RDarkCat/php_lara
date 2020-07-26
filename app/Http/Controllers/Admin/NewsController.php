@@ -26,7 +26,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view('news.create', ['categories' => $this->getCategories()]);
+        return view('news.create');
     }
 
     /**
@@ -64,7 +64,7 @@ class NewsController extends Controller
      */
     public function edit(News $news)
     {
-        return view('news.edit', ['news' => $news, 'categories' => $this->getCategories()]);
+        return view('news.edit', ['news' => $news]);
     }
 
     /**

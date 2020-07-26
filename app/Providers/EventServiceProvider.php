@@ -3,8 +3,10 @@
 namespace App\Providers;
 
 use App\Events\NewsEditedEvent;
+use App\Events\ResourceUpdateEvent;
 use App\Listeners\LastLoginListener;
 use App\Listeners\NewsEditedListener;
+use App\Listeners\ResourceUpdateListener;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -26,6 +28,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         NewsEditedEvent::class => [
             NewsEditedListener::class
+        ],
+        ResourceUpdateEvent::class => [
+          ResourceUpdateListener::class
         ],
         \SocialiteProviders\Manager\SocialiteWasCalled::class => [
             'SocialiteProviders\\VKontakte\\VKontakteExtendSocialite@handle',

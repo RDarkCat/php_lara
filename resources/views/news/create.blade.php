@@ -17,7 +17,7 @@
                             </div>
                         @endif
                         <label for="description-id">Текст новости (длинное описание):</label>
-                        <input id="description-id" name="body" type="text" class="form-control" value="{{ old('body') }}"/>
+                        <textarea id="description-id" name="body" type="text" class="form-control">{{ old('body') }}</textarea>
                         @if($errors->has('body'))
                             <div class="alert alert-danger">
                                 @foreach($errors->get('body') as $error)
@@ -32,3 +32,9 @@
         </div>
     </div>
 @endsection
+@push('ckEditor')
+    <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('description-id');
+    </script>
+@endpush

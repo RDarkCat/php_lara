@@ -8636,7 +8636,7 @@ namespace Illuminate\Support\Facades {
         }
 
         /**
-         * Create a new redirect response to an external URL (no validation).
+         * Create a new redirect response to an externals URL (no validation).
          *
          * @param string $path
          * @param int $status
