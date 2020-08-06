@@ -12,6 +12,8 @@ use GuzzleHttp\Client;
 
 class ExternalController extends Controller
 {
+    const STATUS_HTTP_OK = 200;
+
     /**
      * Display a listing of the resource.
      *
@@ -104,7 +106,7 @@ class ExternalController extends Controller
         $client = new Client();
         $request = $client->head($external->url);
 
-        if( $request->getStatusCode() == 200 ) {
+        if( $request->getStatusCode() == STATUS_HTTP_OK ) {
             event((new ResourceUpdateEvent($external)));
 
             return redirect('/admin/externals')->with('success', 'Ссылка рабочает');
