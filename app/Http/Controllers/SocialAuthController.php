@@ -25,7 +25,7 @@ class SocialAuthController extends Controller
         if (Auth::id()) {
             return redirect()->route('news.index');
         }
-
+        // анти-паттерн "Copy-paste"
         $user = Socialite::driver('vkontakte')->user();
         session(['soc.token' => $user->token]);
         $userInsystem = $userRepository->getUserBySocId($user, 'vk');
@@ -50,7 +50,7 @@ class SocialAuthController extends Controller
         if (Auth::id()) {
             return redirect()->route('news.index');
         }
-
+        // анти-паттерн "Copy-paste"
         $user = Socialite::driver('facebook')->user();
         session(['soc.token' => $user->token]);
         $userInsystem = $userRepository->getUserBySocId($user, 'facebook');
